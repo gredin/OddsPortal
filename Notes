@@ -1,0 +1,19 @@
+Datasets
+
+    https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset/home
+
+OddsPortal
+
+    https://www.oddsportal.com/soccer/france/ligue-1-2017-2018/results
+
+        https://fb.oddsportal.com/ajax-sport-country-tournament-archive/1/hn9DAGLG/X220217858X201351439X1155072X0X525058X1024X0X0X0X0X0X0X8388608X8X512X0X0X1040/1/1/1/?_=1550268310655
+        https://fb.oddsportal.com/ajax-sport-country-tournament-archive/1/hn9DAGLG/X220217858X201351439X1155072X0X525058X1024X0X0X0X0X0X0X8388608X8X512X0X0X1040/1/1/2/?_=1550268314394
+        ...
+
+    https://www.oddsportal.com/soccer/france/ligue-1-2017-2018/metz-caen-0SOkAO9j/
+
+        var page = new PageEvent({"id":"0SOkAO9j","xhash":"%79%6a%63%64%61","xhashf":"%79%6a%66%62%65","ukeyBase":"E-2900919","isLive":false,"isPostponed":false,"isStarted":true,"isFinished":true,"isFinishedGracePeriod":true,"sportId":1,"versionId":1,"home":"Metz","away":"Caen","tournamentId":28035,"eventBonus":[]});
+
+        xhash
+
+        https://fb.oddsportal.com/feed/match/1-1-0SOkAO9j-1-2-yjcda.dat?_=1550268335642
