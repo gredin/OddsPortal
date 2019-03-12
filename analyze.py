@@ -5,7 +5,8 @@ import json
 short_scores = set([])
 tournament_names = set([])
 
-allowed_tournament_names = {'2008/2009', '2009/2010', '2010/2011', '2011/2012', '2012/2013', '2013/2014', '2014/2015', '2015/2016', '2016/2017', '2017/2018', '2018/2019'}
+allowed_tournament_names = {'2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019',
+                            '2009/2010', '2010/2011', '2011/2012', '2012/2013', '2013/2014', '2014/2015', '2015/2016', '2016/2017', '2017/2018', '2018/2019'}
 
 right = 0
 wrong = 0
@@ -16,12 +17,12 @@ net_winnings = []
 
 probas = {}
 
-with open("scraping/oddsportal_ligue1.jl") as f:
-    for line in f:
+with open("scraping/oddsportal_57618.jl") as f:
+    for line_number, line in enumerate(f):
         scraped_item = json.loads(line)
 
-        short_score = scraped_item['match']['score_short']
-        short_scores.add(short_score)
+        if 'from_alternative_structure' in scraped_item['match']:
+            continue
 
         tournament_name = scraped_item['tournament']['name']
         tournament_names.add(tournament_name)
@@ -29,9 +30,13 @@ with open("scraping/oddsportal_ligue1.jl") as f:
         if tournament_name not in allowed_tournament_names:
             continue
 
+        short_score = scraped_item['match']['score_short']
+        short_scores.add(short_score)
+
         try:
-            home_score = int(short_score[0])
-            away_score = int(short_score[2])
+            home_score, away_score = short_score.split('\xa0')[0].split(':')
+            home_score = int(home_score)
+            away_score = int(away_score)
 
             outcome_from_score = "1" if home_score > away_score else ("X" if home_score == away_score else "2")
         except:

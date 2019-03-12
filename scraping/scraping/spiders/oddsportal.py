@@ -34,7 +34,7 @@ class OddsportalSpider(scrapy.Spider):
 
     custom_settings = {
         # 'CLOSESPIDER_ITEMCOUNT': 5,
-        'FEED_URI': 'oddsportal.jl',  # TODO: edit
+        'FEED_URI': 'oddsportal_large.jl',  # TODO: edit
         'LOG_LEVEL': 'INFO',
         # 'DOWNLOAD_DELAY': 0.2,
         'CONCURRENT_REQUESTS': 12,
@@ -46,6 +46,7 @@ class OddsportalSpider(scrapy.Spider):
 
     def start_requests(self):
         # TODO: for testing
+        """
         for url in [
             "https://www.oddsportal.com/soccer/france/ligue-1/results/",
             "https://www.oddsportal.com/soccer/france/ligue-2/results/",
@@ -80,9 +81,11 @@ class OddsportalSpider(scrapy.Spider):
             )
 
         return
+        """
         # TODO: for testing
 
         # TODO: for testing
+        """
         url = "https://www.oddsportal.com/soccer/france/ligue-1-2017-2018/results/"
         yield scrapy.Request(
             url,
@@ -104,13 +107,14 @@ class OddsportalSpider(scrapy.Spider):
             }
         )
         return
+        """
         # TODO: for testing
 
         sport_id = 1
         sport_slug = "soccer"
         sport_url = "https://www.oddsportal.com/%s/results/" % sport_slug
 
-        yield scrapy.Request(url, self.parse_sport, meta={
+        yield scrapy.Request(sport_url, self.parse_sport, meta={
             "sport": {
                 "id": sport_id,
                 "slug": sport_slug,
